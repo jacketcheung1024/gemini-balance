@@ -10,7 +10,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY ./app /app/app
 
 # Expose port
-EXPOSE 8000
+EXPOSE 8080
 
 # Run the application
-CMD ["sh", "-c", "uvicorn app.main:app --host 0.0.0.0 --port ${PORT} --no-access-log"]
+CMD ["sh", "-c", "PYTHONPATH=/app uvicorn app.main:app --host 0.0.0.0 --port ${PORT} --no-access-log"]
